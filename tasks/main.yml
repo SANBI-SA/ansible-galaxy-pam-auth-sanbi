@@ -1,0 +1,15 @@
+---
+- name: Install auth_conf.xml
+  become: yes
+  become_user: "{{ galaxy_user_name }}"
+  copy: src=auth_conf.xml  dest={{ galaxy_config_dir }}
+
+- name: Install python-pam module
+  become: yes
+  become_user: "{{ galaxy_user_name }}"
+  pip: name=python-pam virtualenv={{ galaxy_venv_dir }}
+  
+- name: Install galaxy pam.d file
+  become: yes
+  become_user: root
+  copy: src=galaxy.pam dest=/etc/pam.d/galaxy

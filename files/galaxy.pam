@@ -1,0 +1,11 @@
+#%PAM-1.0
+
+auth       required   pam_env.so readenv=1 user_readenv=0
+auth       required   pam_env.so readenv=1 envfile=/etc/default/locale user_readenv=0
+@include common-auth
+# Disallow non-root logins when /etc/nologin exists.
+account    required     pam_nologin.so
+@include common-account
+# Set up user limits from /etc/security/limits.conf.
+session    required     pam_limits.so
+@include common-session-noninteractive
