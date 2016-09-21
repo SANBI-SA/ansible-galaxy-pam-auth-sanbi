@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: The Sanbi-UWC Team
+  description: Automate installation of Galaxy related packages and tools in SANBI.
+  company: SANBI
+  license: MIT
+  min_ansible_version: 2.1.2.0
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  categories:
+  - system
+dependencies: []
